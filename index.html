@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    
+    <style>
+        .container{
+            display:inline-block;
+            align-items: center;
+            justify-content: center;
+            background: black;
+            margin:15vh 38vw;
+            box-shadow: 2px 2px 20px 2px black;
+        }
+        input{
+            width: 350px;
+            font-size: 30px;
+            border-radius: 23px;
+            margin-top: 10px;
+            margin-bottom: 10px
+        }
+        h1{
+            margin: 0 45vw;
+            margin-top: 30px;
+            font-family: monospace;
+            font-size: 32px;
+            }  
+            button{
+                background: rgb(44, 42, 42);
+                color: white;
+                width: 85px;
+                height: 71px;
+                /* border-radius: 10px; */
+        /* background: lightblue; */
+            }      
+            .operator{
+                background: maroon;
+            }
+            .operator1{
+                background: #2c5379;
+            }
+            body{
+                background: linear-gradient(-30deg,skyblue 0%,lightblue 50%,white 50%,whitesmoke 100%) no-repeat;
+                padding: 0;
+                margin:0;
+                height: 100vh;
+                width: 100%;
+            }
+            .credits{
+                position: absolute;
+                left:450px;
+                margin-top:-10px;
+                width:1350px;
+            }
+            .dark{
+                background: white;
+                color:black;
+            }
+    </style>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <!-- <button onclick="Dark()">Dark Mode</button> -->
+    <div class="container">
+        <input type="text" id="currentDisplay">
+        <table>
+            <tr>
+                <td colspan="2"><button onclick="Clear()" style="width:180px"; class="operator">C</button></td>
+                <td><button onclick="Back()" class="operator1"> <-- </button></td>
+                <td><button onclick="passValue('+')"class="operator">+</button></td>
+                
+            </tr>
+            <tr>
+                <td><button onclick="passValue(7)">7</button> </td>
+                <td><button onclick="passValue(8)">8</button> </td>
+                <td><button onclick="passValue(9)">9</button> </td>
+                <td><button onclick="passValue('/')" class="operator">/</button> </td>
+            </tr>
+            <tr>
+                <td><button onclick="passValue(4)">4</button></td>
+                <td><button onclick="passValue(5)">5</button></td>
+                <td><button onclick="passValue(6)">6</button></td>
+                <td ><button onclick="passValue('*')" class="operator">*</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="passValue(1)">1</button></td>
+                <td><button onclick="passValue(2)">2</button></td>
+                <td><button onclick="passValue(3)">3</button></td>
+                <td><button onclick="passValue('-')" class="operator">-</button></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button onclick="passValue(0)" style="width: 183px;">0</button></td>
+                <td><button onclick="passValue('.')">.</button></td>
+                <td><button onclick="Evaluate()" class="operator1">=</button></td>
+            </tr>
+        </table>
+
+    </div>
+<div class="credits">
+    <h1>Made by -Chaitanya Galande</h1>
+</div>
+</body>
+<script>
+    let currentDisplay=document.getElementById('currentDisplay');
+    
+    function passValue(num){
+    currentDisplay.value=currentDisplay.value+num;
+    }
+
+    function Evaluate(){
+        currentDisplay.value=eval(currentDisplay.value);
+        
+    }
+    function Clear(){
+        currentDisplay.value="";
+    }
+    function Back(){
+        var z=currentDisplay.value;
+        currentDisplay.value=z.substring(0,z.length-1)
+        
+    }
+    let button=document.querySelectorAll('button');
+    let container=document.getElementsByClassName('container');
+    function Dark(){
+        
+    }
+</script>
+</html>
